@@ -1,16 +1,26 @@
 window.onload = function () {
+  var entries = document.querySelectorAll(".project-entry");
+  var entriesArray = [...entries];
+  var entriesMarginTop = entriesArray[0].style.marginTop;
+
   console.log("main.js is loaded\n");
-  // window.addEventListener("scroll", function () {
-  //   scroll_fixed(document.querySelector("#banner"));
-  // });
+  console.log(entriesArray);
+
+  entriesArray.map((entry) => {
+    entry.addEventListener("mouseenter", () => {
+      let footer = entry.querySelector(".entry-footer");
+      entryHover(entry, "0px");
+      footer.style.animationName = "signaling-arrow";
+    });
+    entry.addEventListener("mouseleave", () => {
+      let footer = entry.querySelector(".entry-footer");
+      entryHover(entry, entriesMarginTop);
+      footer.style.animationName = "";
+    });
+  });
 };
 
-function scroll_fixed(elem) {
-  var start = 40;
-  var scrolled = (window.scrollY / window.innerHeight) * 100;
-  if (scrolled > start) {
-    elem.style.top = -scrolled + start + "%";
-  } else {
-    elem.style.top = 0;
-  }
+function entryHover(entry, marginTop) {
+  console.log(entry);
+  entry.style.marginTop = marginTop;
 }
