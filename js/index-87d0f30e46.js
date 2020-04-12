@@ -1,0 +1,1 @@
+function scroll_fixed(o){var n=window.scrollY/window.outerHeight*100;o.style.top=50<n?50-n+"%":0}window.onload=function(){console.log("main.js is loaded\n"),window.addEventListener("scroll",function(){scroll_fixed(document.querySelector("#banner"))})};
