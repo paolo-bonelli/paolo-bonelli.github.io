@@ -1,14 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
 
-$span-bg-color: maroon;
-$bg-color-01: midnightblue;
-$bg-color-02: #6262bd;
-body {
-  font-family: "Raleway", sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #ffcc41;
-}
+$span-bg-color: #36b3ab;
+$bg-color-01: #ffe56d;
+$bg-color-02: #b39f47;
+$hightlight: #000;
 
 @mixin rst-format {
   color: black;
@@ -20,11 +15,23 @@ body {
   }
 }
 
+@mixin padding-x($left, $rigth) {
+  padding-left: $left;
+  padding-right: $rigth;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffcc41;
+}
+
 .triangle {
   position: absolute;
   height: 0;
   width: 0;
-  border-top: 100vh solid maroon;
+  border-top: 100vh solid $span-bg-color;
   border-left: 100vw solid transparent;
 }
 
@@ -38,7 +45,16 @@ body {
 }
 
 .container-title {
+  margin-top: 2vh;
   font-size: 2rem;
+  padding: 0.8rem;
+  background-color: $span-bg-color;
+  color: $hightlight;
+}
+.container-title > h2 {
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
 }
 
 .container-body {
@@ -48,12 +64,6 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-}
-
-#projects-entries.container-body {
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .container-img {
@@ -90,35 +100,43 @@ body {
 }
 
 .entry-type {
+  @include padding-x(0.5em, 4.5em);
+  color: $hightlight;
   margin-bottom: auto;
   z-index: 20;
   font: {
-    size: 0.8em;
-    weight: 800;
+    size: 1em;
+    weight: 900;
   }
   letter-spacing: 1px;
   background: {
     color: transparent;
   }
   text-transform: uppercase;
-  background-image: linear-gradient(45deg, white, transparent 60%);
+  background-image: linear-gradient(45deg, white, transparent 80%);
+  width: fit-content;
 }
 
 .entry-body {
   z-index: 20;
   height: 150px;
   margin-top: auto;
-  color: #fff;
+  color: white;
 }
 
 .entry-body > span {
   font-size: 0.8em;
-  background-color: $span-bg-color;
+  background-color: $bg-color-01;
+  color: $hightlight;
+  padding: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .entry-content {
   letter-spacing: 1px;
   text-align: right;
+  font-size: 0.8em;
 }
 
 .entry-body > h3 {
@@ -145,8 +163,8 @@ body {
   width: 100%;
   height: 100%;
   background-color: transparent;
-  background-image: linear-gradient(to top, $bg-color-02, transparent 70%);
-  filter: opacity(80%);
+  background-image: linear-gradient(to top, $span-bg-color, $span-bg-color 30%, transparent 70%);
+  filter: opacity(60%);
 }
 
 .entry-img {
@@ -170,7 +188,7 @@ body {
   width: auto;
   padding: 10px 20px;
   font-size: 1em;
-  background-color: $bg-color-01;
+  background-color: $span-bg-color;
   transition: 1s;
 }
 
@@ -197,20 +215,33 @@ body {
   color: white;
   z-index: 10;
   text-align: right;
+  align-items: flex-end;
+  padding-right: 10vw;
+  padding-top: 18vh;
+  box-sizing: border-box;
 }
 
 #home-body > h1 {
-  margin-top: 15vh;
+  margin-top: 0;
+  max-width: 65vw;
 }
 
 #home-body > p {
   padding-left: 10%;
+  max-width: 50vw;
 }
 
 #projects {
   color: lightblue;
-  background-color: maroon;
+  background-color: $bg-color-02;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#projects-entries.container-body {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
 }
