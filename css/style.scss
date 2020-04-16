@@ -39,6 +39,47 @@ body {
   background-color: #ffcc41;
 }
 
+ul.nav-bar {
+  list-style-type: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 100;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+li.nav-item {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+li.nav-item > span {
+  text-align: center;
+  height: 40px;
+  padding: 10px;
+  text-transform: uppercase;
+  background-color: transparent;
+  box-sizing: border-box;
+  align-content: center;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: $hightlight;
+}
+
+li#logo > img {
+  object-fit: contain;
+  height: 100px;
+  width: 100px;
+}
+
 .triangle {
   position: absolute;
   height: 0;
@@ -48,6 +89,8 @@ body {
 }
 
 .container {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,21 +100,37 @@ body {
 }
 
 .container-title {
-  margin-top: 2vh;
+  margin-top: 6vh;
   margin-bottom: 2vh;
   font-size: 2rem;
   padding: 0.8rem;
-  background-color: $span-bg-color;
+  background-color: transparent;
   color: $hightlight;
 }
 .container-title > h2 {
+  font-size: 10vw;
   text-transform: uppercase;
   margin: 0;
   padding: 0;
+  letter-spacing: 1vw;
+}
+
+.container-water-mark {
+  box-sizing: border-box;
+  position: absolute;
+  margin: 0;
+  text-transform: uppercase;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  opacity: 5%;
+  font-size: 25vw;
+  text-indent: -20%;
+  letter-spacing: 2vw;
 }
 
 .container-body {
-  min-height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -249,7 +308,7 @@ body {
 }
 
 #projects {
-  background-color: $bg-color-02;
+  background-color: $bg-color-01;
   display: flex;
   flex-direction: column;
   align-items: center;
