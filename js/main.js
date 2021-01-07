@@ -43,3 +43,14 @@ function navbar_animation(navBar) {
 function entryHover(entry, marginTop) {
   entry.style.marginTop = marginTop;
 }
+
+async function fetchData() {
+  // Fetch command
+  const response = await fetch("https://api.longboardsetup.com/wp-json/wp/v2/decks");
+  // Transfrom the data to a JSON
+  const data = await response.json();
+  // Open de Chrome DevTools to see the full response
+  console.log(data);
+}
+
+fetchData();
