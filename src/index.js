@@ -1,4 +1,4 @@
-import logoDP from "./logoDP.png";
+import logoDP from "./images/logoDP.png";
 
 import "./styles/main.scss";
 
