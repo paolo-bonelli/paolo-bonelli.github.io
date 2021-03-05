@@ -19,12 +19,20 @@ body {
 #portada {
   width: 100%;
   height: 80vh;
+  position: relative;
 
   & #saludo {
     text-align: right;
+    font-weight: 300;
+    position: absolute;
+    transform: translate(0px, -25%);
+    right: 0px;
+    top: 35%;
 
     & h1 {
-      font-size: 2em;
+      font-size: 3em;
+      margin: 0px;
+      font-weight: inherit;
     }
   }
 }
@@ -33,15 +41,22 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-weight: 300;
 
   & > h1 {
     font-size: 10vh;
+    font-weight: inherit;
+    margin: 0px;
+  }
+
+  & > p {
+    margin: 2em 0px;
   }
 }
 
 #habilidades {
   max-width: 115vh;
-  height: 55vh;
+  min-height: 55vh;
   display: flex;
   flex-wrap: wrap;
 }
@@ -88,5 +103,28 @@ body {
     margin: 0px;
     margin-left: 0.4em;
     margin-bottom: 0.2em;
+  }
+}
+
+@media (max-width: 700px) {
+  #mis-habilidades {
+    & > h1 {
+      font-size: 7vh;
+    }
+
+    & > p {
+      text-align: center;
+    }
+  }
+  #habilidades {
+    max-width: 90vw;
+  }
+
+  .habilidad {
+    width: 100%;
+
+    & span {
+      font-size: 0.6em;
+    }
   }
 }
