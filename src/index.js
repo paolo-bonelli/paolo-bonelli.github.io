@@ -6,6 +6,15 @@ import cms from "./images/cms.png";
 import frontEnd from "./images/front-end.png";
 import webDev from "./images/web-dev.png";
 import webServ from "./images/web-service.png";
+import fondo from "./images/Typing-bro.png";
+
+const portada = document.querySelector("#portada");
+const fondoElem = document.createElement("IMG");
+
+fondoElem.setAttribute("src", fondo);
+fondoElem.setAttribute("class", "background-img");
+
+portada.appendChild(fondoElem);
 
 var images = [webDev, frontEnd, backEnd, appDesign, cms, webServ];
 
