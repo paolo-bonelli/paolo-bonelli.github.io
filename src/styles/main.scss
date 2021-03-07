@@ -18,6 +18,15 @@ $highlight-font: RobotoRegular;
 $total-width: 100vw;
 $margin-len: 9.3vw;
 
+@mixin Separador {
+  margin: 0;
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  transform: translate(-50%, 0px);
+  left: 50%;
+}
+
 :root {
   font-family: $main-font, sans-serif;
 }
@@ -34,37 +43,22 @@ body {
   margin: 0px;
 }
 
-#triangulo1 {
-  margin: 0;
-  width: 0px;
-  height: 0px;
-  border-top: 10vh solid $blue;
-  position: absolute;
-  transform: translate(-50%, 0px);
-  left: 50%;
-  border-left: $total-width solid transparent;
-  top: 0;
-}
+.separador {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
 
-@mixin triangulo {
-  margin: 0;
-  width: 0px;
-  height: 0px;
-  position: absolute;
-  transform: translate(-50%, 0px);
-  left: 50%;
-}
-
-.triangulo {
-  &-sup {
-    @include triangulo;
+  &-sup::before {
+    content: "";
+    @include Separador;
     border-top: 10vh solid $blue;
     border-right: $total-width solid transparent;
     top: 0;
   }
 
-  &-inf {
-    @include triangulo;
+  &-inf::after {
+    content: "";
+    @include Separador;
     border-bottom: 10vh solid $blue;
     border-left: $total-width solid transparent;
     bottom: 0;
@@ -75,7 +69,11 @@ body {
   box-sizing: border-box;
   width: 100%;
   height: 87vh;
-  position: relative;
+
+  &::before {
+    border-left: $total-width solid transparent;
+    border-right-width: 0;
+  }
 
   & #saludo {
     text-align: right;
@@ -186,11 +184,12 @@ body {
 }
 
 footer.agradecimientos {
-  width: $total-width;
+  width: 100%;
   background-color: #565656;
   color: #cacaca;
   display: flex;
   justify-content: center;
+  text-align: center;
 
   & .container {
     margin: 1em;
@@ -201,6 +200,17 @@ footer.agradecimientos {
     text-decoration: none;
     font-family: $highlight-font;
     color: inherit;
+  }
+}
+
+#about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  & > p {
+    margin: 1em $margin-len;
   }
 }
 
@@ -217,10 +227,11 @@ footer.agradecimientos {
       text-align: center;
       position: relative;
       width: 100%;
+      right: 0;
     }
 
     & .background-img {
-      width: $total-width;
+      width: 100vw;
       position: relative;
       height: auto;
       max-width: 80%;
@@ -238,6 +249,7 @@ footer.agradecimientos {
       text-align: center;
     }
   }
+
   #habilidades {
     max-width: 90vw;
   }
@@ -247,6 +259,14 @@ footer.agradecimientos {
 
     & span {
       font-size: 0.6em;
+    }
+  }
+
+  footer.agradecimientos {
+    flex-direction: column;
+
+    & .container {
+      max-width: 100%;
     }
   }
 }
