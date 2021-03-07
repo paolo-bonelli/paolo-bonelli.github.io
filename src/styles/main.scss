@@ -11,9 +11,12 @@
 $primary: black;
 $secondary: white;
 $dark-blue: #006df0;
+$blue: #00a9f0;
 $light-blue: #00e7f0;
 $main-font: RobotoLight;
 $highlight-font: RobotoRegular;
+$total-width: 100vw;
+$margin-len: 9.3vw;
 
 :root {
   font-family: $main-font, sans-serif;
@@ -26,20 +29,20 @@ span {
 body {
   display: flex;
   flex-direction: column;
+  align-items: center;
   position: relative;
   margin: 0px;
-  padding: 0px 9.3vw;
 }
 
 #triangulo1 {
   margin: 0;
   width: 0px;
   height: 0px;
-  border-top: 10vh solid #006df0;
+  border-top: 10vh solid $blue;
   position: absolute;
   transform: translate(-50%, 0px);
   left: 50%;
-  border-left: 100vw solid transparent;
+  border-left: $total-width solid transparent;
   top: 0;
 }
 
@@ -55,20 +58,21 @@ body {
 .triangulo {
   &-sup {
     @include triangulo;
-    border-top: 10vh solid #006df0;
-    border-right: 100vw solid transparent;
+    border-top: 10vh solid $blue;
+    border-right: $total-width solid transparent;
     top: 0;
   }
 
   &-inf {
     @include triangulo;
-    border-bottom: 10vh solid #006df0;
-    border-left: 100vw solid transparent;
+    border-bottom: 10vh solid $blue;
+    border-left: $total-width solid transparent;
     bottom: 0;
   }
 }
 
 #portada {
+  box-sizing: border-box;
   width: 100%;
   height: 87vh;
   position: relative;
@@ -78,7 +82,7 @@ body {
     font-weight: 300;
     position: absolute;
     transform: translate(0px, -25%);
-    right: 0px;
+    right: $margin-len;
     top: 35%;
     font-size: x-large;
     width: 35%;
@@ -120,6 +124,7 @@ body {
     margin: 0;
     margin-top: 1em;
     font-size: 1.6em;
+    font-weight: 300;
   }
 
   & > p {
@@ -162,7 +167,7 @@ body {
   & span {
     font-size: smaller;
     font-weight: 300;
-    background-color: $dark-blue;
+    background-color: $blue;
     color: $secondary;
     height: 1.6em;
     display: flex;
@@ -177,6 +182,25 @@ body {
     margin: 0px;
     margin-left: 0.4em;
     margin-bottom: 0.2em;
+  }
+}
+
+footer.agradecimientos {
+  width: $total-width;
+  background-color: #565656;
+  color: #cacaca;
+  display: flex;
+  justify-content: center;
+
+  & .container {
+    margin: 1em;
+    max-width: 28%;
+  }
+
+  & a:-webkit-any-link {
+    text-decoration: none;
+    font-family: $highlight-font;
+    color: inherit;
   }
 }
 
@@ -196,7 +220,7 @@ body {
     }
 
     & .background-img {
-      width: 100vw;
+      width: $total-width;
       position: relative;
       height: auto;
       max-width: 80%;
