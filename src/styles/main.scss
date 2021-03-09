@@ -265,6 +265,7 @@ footer.agradecimientos {
       max-width: 65%;
       transform: initial;
       left: 0;
+      top: 0;
     }
   }
 
@@ -294,7 +295,8 @@ footer.agradecimientos {
     width: 100%;
     box-sizing: border-box;
     flex-direction: column;
-    padding: 0 9.3vw;
+    padding-left: $margin-len;
+    padding-right: $margin-len;
 
     & .content {
       width: 100%;
