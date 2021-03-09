@@ -19,6 +19,7 @@ $total-width: 100vw;
 $margin-len: 9.3vw;
 
 @mixin Separador {
+  content: "";
   margin: 0;
   width: 0px;
   height: 0px;
@@ -47,21 +48,37 @@ body {
   position: relative;
   overflow: hidden;
   width: 100%;
+  padding: 10vh 0;
 
-  &-sup::before {
-    content: "";
-    @include Separador;
-    border-top: 10vh solid $blue;
-    border-right: $total-width solid transparent;
-    top: 0;
+  &-sup {
+    &::before {
+      @include Separador;
+      border-top: 10vh solid $blue;
+      border-right: $total-width solid transparent;
+      top: 0;
+    }
+
+    &-inv::before {
+      @include Separador;
+      border-top: 10vh solid $blue;
+      border-left: $total-width solid transparent;
+      top: 0;
+    }
   }
 
-  &-inf::after {
-    content: "";
-    @include Separador;
-    border-bottom: 10vh solid $blue;
-    border-left: $total-width solid transparent;
-    bottom: 0;
+  &-inf {
+    &::after {
+      @include Separador;
+      border-bottom: 10vh solid $blue;
+      border-left: $total-width solid transparent;
+      bottom: 0;
+    }
+    &-inv::after {
+      @include Separador;
+      border-bottom: 10vh solid $blue;
+      border-right: $total-width solid transparent;
+      bottom: 0;
+    }
   }
 }
 
@@ -70,10 +87,10 @@ body {
   width: 100%;
   height: 87vh;
 
-  &::before {
-    border-left: $total-width solid transparent;
-    border-right-width: 0;
-  }
+  // &::before {
+  //   border-left: $total-width solid transparent;
+  //   border-right-width: 0;
+  // }
 
   & #saludo {
     text-align: right;
@@ -98,7 +115,8 @@ body {
     position: absolute;
     z-index: -1;
     opacity: 0.5;
-    transform: translate(-50%, 0px);
+    transform: translate(-50%, -50%);
+    top: 50%;
     left: 30%;
   }
 }
@@ -205,12 +223,21 @@ footer.agradecimientos {
 
 #about {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   justify-content: center;
+  align-items: center;
   text-align: center;
+  min-height: 60vh;
 
-  & > p {
-    margin: 1em $margin-len;
+  & .content {
+    width: 40%;
+  }
+
+  & img {
+    object-fit: contain;
+    max-height: 60vh;
+    max-width: 100%;
+    opacity: 0.7;
   }
 }
 
@@ -260,6 +287,17 @@ footer.agradecimientos {
 
     & span {
       font-size: 0.6em;
+    }
+  }
+
+  #about {
+    width: 100%;
+    box-sizing: border-box;
+    flex-direction: column;
+    padding: 0 9.3vw;
+
+    & .content {
+      width: 100%;
     }
   }
 

@@ -7,16 +7,25 @@ import frontEnd from "./images/front-end.png";
 import webDev from "./images/web-dev.png";
 import webServ from "./images/web-service.png";
 import fondo from "./images/Typing-bro.png";
+import presentation from "./images/Resume-bro.png";
+import favicon from "./favicon.png";
 
 const portada = document.querySelector("#portada");
+const imgContainers = document.querySelectorAll(".habilidad-img");
+const aboutContainer = document.querySelector("#about>img");
+const faviconElem = document.createElement("LINK");
 const fondoElem = document.createElement("IMG");
+const testImg = document.createElement("IMG");
+const newImg = document.createElement("IMG");
+const images = [webDev, frontEnd, backEnd, appDesign, cms, webServ];
 
-fondoElem.setAttribute("src", fondo);
-fondoElem.setAttribute("class", "background-img");
+faviconElem.rel = "icon";
+faviconElem.href = favicon;
+faviconElem.type = "image/png";
 
-portada.appendChild(fondoElem);
+document.head.appendChild(faviconElem);
 
-var images = [webDev, frontEnd, backEnd, appDesign, cms, webServ];
+aboutContainer.setAttribute("src", presentation);
 
 var imgElements = images.map(function (img) {
   const imgElem = document.createElement("IMG");
@@ -25,17 +34,18 @@ var imgElements = images.map(function (img) {
   return imgElem;
 });
 
-const imgContainers = document.querySelectorAll(".habilidad-img");
+fondoElem.setAttribute("src", fondo);
+fondoElem.setAttribute("class", "background-img");
+
+portada.appendChild(fondoElem);
 
 imgContainers.forEach((cont, i) => {
   cont.appendChild(imgElements[i]);
 });
 
-var testImg = document.createElement("IMG");
 testImg.setAttribute("src", appDesign);
 
 console.log("Hello you!");
 
-var newImg = document.createElement("IMG");
 newImg.setAttribute("src", logoDP);
 newImg.setAttribute("alt", "Dulce Sin Pena");
