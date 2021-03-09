@@ -9,15 +9,19 @@ import webServ from "./images/web-service.png";
 import fondo from "./images/Typing-bro.png";
 import presentation from "./images/Resume-bro.png";
 import favicon from "./favicon.png";
+import whatsappLogo from "./images/whatsapp.png";
 
 const portada = document.querySelector("#portada");
 const imgContainers = document.querySelectorAll(".habilidad-img");
 const aboutContainer = document.querySelector("#about>img");
+const whatsapp = document.querySelector("#whatsapp .contact-logo");
 const faviconElem = document.createElement("LINK");
 const fondoElem = document.createElement("IMG");
 const testImg = document.createElement("IMG");
 const newImg = document.createElement("IMG");
 const images = [webDev, frontEnd, backEnd, appDesign, cms, webServ];
+
+whatsapp.setAttribute("src", whatsappLogo);
 
 faviconElem.rel = "icon";
 faviconElem.href = favicon;
