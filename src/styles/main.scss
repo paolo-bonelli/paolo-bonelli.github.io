@@ -290,6 +290,10 @@ footer.agradecimientos {
     justify-content: center;
     align-items: center;
 
+    & a:-webkit-any-link {
+      margin-right: auto;
+    }
+
     & #saludo {
       top: 0;
       transform: initial;
